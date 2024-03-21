@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="io.projectreactor.reactor.core" type="repository">
+    <properties maven-id="io.projectreactor:reactor-core:3.6.3" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/io/projectreactor/reactor-core/3.6.3/reactor-core-3.6.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
