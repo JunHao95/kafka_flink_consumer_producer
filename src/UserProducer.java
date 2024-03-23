@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class UserProducer {
 
-    private static final String TOPIC_BALANCE = "user-balances";
+    private static final String TOPIC_BALANCE = "raw-conversation";
 
 
     public static void main(String[] args) {
@@ -18,10 +18,10 @@ public class UserProducer {
 
         try (Scanner scanner = new Scanner(System.in)) {
           System.out.println("Enter your name:");
-          String senderName = scanner.nextLine().trim(); // sender name
+          String senderName = scanner.nextLine().trim();
 
           System.out.println("Enter recipient name:");
-          String targetUserName = scanner.nextLine().trim(); // target name?
+          String targetUserName = scanner.nextLine().trim();
 
             // Prompt for messages to send
             System.out.println("Enter messages (type 'exit' to quit):");

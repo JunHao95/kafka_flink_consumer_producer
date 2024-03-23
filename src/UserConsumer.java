@@ -1,6 +1,4 @@
 import org.apache.kafka.clients.consumer.ConsumerConfig;
-//import org.apache.kafka.common.serialization.DoubleDeserializer;
-//import org.apache.kafka.common.serialization.IntegerDeserializer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import reactor.kafka.receiver.KafkaReceiver;
 import reactor.kafka.receiver.ReceiverOptions;
@@ -13,7 +11,7 @@ public class UserConsumer {
         System.out.println("Enter the name for the consumer:");
         String consumerName = scanner.nextLine().trim();
 
-        KafkaReceiver<String, String> receiver = createReceiver(List.of("user-alerts"), "balance-consumer");
+        KafkaReceiver<String, String> receiver = createReceiver(List.of("filtered-conversation"), "balance-consumer");
         receiver.receive().subscribe(event -> {
           if (event.key().equals(consumerName)) {
             System.out.printf("%s: %s\n", event.key(), event.value());
