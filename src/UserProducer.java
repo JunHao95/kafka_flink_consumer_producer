@@ -37,7 +37,7 @@ public class UserProducer {
                             }
                         }
                     })
-                    .doOnNext(x -> System.out.printf("%s -> %s\n", x.key(), x.value()))
+                    .doOnNext(x -> System.out.printf("%s -> %s:  %s\n", senderName, x.key(), x.value()))
                     .map(x -> Mono.just(SenderRecord.create(x, System.currentTimeMillis())))
                     .flatMap(balanceSender::send)
                     .then()

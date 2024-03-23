@@ -18,13 +18,13 @@ public class UserConsumer {
             event.receiverOffset().commit().subscribe();
           }
         });
-//        KafkaReceiver<String, String> txnAlerts = createReceiver(List.of("user-alerts"), "alert-consumer");
-//        txnAlerts.receive().doOnNext(event -> {
-//            long timestamp = event.timestamp();
-//            Date date = new Date(timestamp);
-//            System.out.printf("ALERT: potential fraudulent transaction at %s: user %s amount %s\n", date, event.key(), event.value());
-//            event.receiverOffset().commit().subscribe();
-//        }).blockLast();
+        // spam alert component
+        KafkaReceiver<String, String> spamAlertsReceiver = createReceiver(List.of("spam_alert"), "spam-alert-consumer");
+        spamAlertsReceiver.receive().subscribe(event -> {
+          // Assuming the spam alert messages have a format or you can process them as needed
+          System.out.printf("SPAM ALERT for %s: %s\n", event.key(), event.value());
+          event.receiverOffset().commit().subscribe();
+        });
     }
 
     public static KafkaReceiver<String, String> createReceiver(Collection<String> topics, String groupId) {
